@@ -268,4 +268,4 @@ AllowUsers admin
 
 <!-- ---------------------- -->
 [img1]:./images/1.png
-[img1]:./images/2.png
+[img2]:./images/2.png
