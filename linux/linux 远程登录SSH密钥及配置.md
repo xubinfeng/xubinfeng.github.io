@@ -90,7 +90,7 @@ ssh -i ~/.ssh/<mykey> <user>@<ip> -p <port>
 
 
 **如图修改(不指定全部为默认,特殊情况才需要指定):**
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20181206120315112.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3h1X2JpbmZlbmc=,size_16,color_FFFFFF,t_70)
+![img2]
 
 # 通过SSH挂载目录/文件系统
 
@@ -268,3 +268,4 @@ AllowUsers admin
 
 <!-- ---------------------- -->
 [img1]:./images/1.png
+[img1]:./images/2.png
