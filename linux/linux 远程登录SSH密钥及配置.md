@@ -267,5 +267,5 @@ AllowUsers admin
 
 
 <!-- ---------------------- -->
-[img1]:./images/1.png
-[img2]:./images/2.png
+[img1]:https://raw.githubusercontent.com/xubinfeng/xubinfeng.github.io/master/linux/images/1.png
+[img2]:https://raw.githubusercontent.com/xubinfeng/xubinfeng.github.io/master/linux/images/2.png
