@@ -218,7 +218,7 @@ Last login: Fri Aug 12 05:39:44 2018 from <ip>
 ```
 
 # sshd_conf逐行说明上面的选项设置：
-```shell
+```
 Port 22
   "Port"设置sshd监听的端口号。
 ListenAddress 192.168.1.1
