@@ -1,4 +1,4 @@
-@[toc](linux 远程登录SSH密钥及配置)   
+
 
 # 密钥备注管理
 **SSH密钥自动生成(尽可能添加密钥注释.注释可以是编号,方便后期维护管理)**
@@ -9,7 +9,7 @@
 
 
 # 密钥生成
-````shell
+```shell
 #-P为指定密码
 ssh-keygen -t rsa -P "" -b 2048 -C "20181205-110001" -f id_rsa_2048_20181205-110001
 ````
@@ -25,7 +25,7 @@ ssh-keygen -t rsa -P "keypasswd" -b 2048 -C "20181205-130008" -f id_rsa_2048_p_2
 ssh-keygen -t rsa -P "keypasswd" -b 2048 -C "20181205-130009" -f id_rsa_2048_p_20181205-130009
 ssh-keygen -t rsa -P "keypasswd" -b 2048 -C "20181205-130010" -f id_rsa_2048_p_20181205-130010
 ssh-keygen -t rsa -P "keypasswd" -b 2048 -C "20181205-130011" -f id_rsa_2048_p_20181205-130011
-````
+```
 
 # 用ssh-copy-id将公钥复制到远程机器中 ssh-copy-id 将key写到远程机器的
 > ~/.ssh/authorized_key.文件中
@@ -133,7 +133,7 @@ Last login: Fri Aug 12 05:39:44 2018 from <ip>
 
 
 # ssh-keygen可用的参数选项有：
-````
+```shell
      -a trials
              在使用 -T 对 DH-GEX 候选素数进行安全筛选时需要执行的基本测试数量。
 
@@ -215,51 +215,51 @@ Last login: Fri Aug 12 05:39:44 2018 from <ip>
              指定在为 DH-GEX 测试候选模数时想要使用的 generator
 
      -y      读取OpenSSH专有格式的公钥文件，并将OpenSSH公钥显示在 stdout 上。
-````
+```
 
 # sshd_conf逐行说明上面的选项设置：
-````
+```shell
 Port 22
-"Port"设置sshd监听的端口号。
+  "Port"设置sshd监听的端口号。
 ListenAddress 192.168.1.1
-"ListenAddress”设置sshd服务器绑定的IP地址。
+  "ListenAddress”设置sshd服务器绑定的IP地址。
 HostKey /etc/ssh/ssh_host_key
-"HostKey”设置包含计算机私人密匙的文件。
+  "HostKey”设置包含计算机私人密匙的文件。
 ServerKeyBits 1024
-"ServerKeyBits”定义服务器密匙的位数。
+  "ServerKeyBits”定义服务器密匙的位数。
 LoginGraceTime 600
-"LoginGraceTime”设置如果用户不能成功登录，在切断连接之前服务器需要等待的时间（以秒为单位）。
+  "LoginGraceTime”设置如果用户不能成功登录，在切断连接之前服务器需要等待的时间（以秒为单位）。
 KeyRegenerationInterval 3600
-"KeyRegenerationInterval”设置在多少秒之后自动重新生成服务器的密匙（如果使用密匙）。重新生成密匙是为了防止用盗用的密匙解密被截获的信息。
+  "KeyRegenerationInterval”设置在多少秒之后自动重新生成服务器的密匙（如果使用密匙）。重新生成密匙是为了防止用盗用的密匙解密被截获的信息。
 PermitRootLogin no
-"PermitRootLogin”设置是否允许root通过ssh登录。这个选项从安全角度来讲应设成"no"。
+  "PermitRootLogin”设置是否允许root通过ssh登录。这个选项从安全角度来讲应设成"no"。
 IgnoreRhosts yes
-"IgnoreRhosts”设置验证的时候是否使用“rhosts”和“shosts”文件。
+  "IgnoreRhosts”设置验证的时候是否使用“rhosts”和“shosts”文件。
 IgnoreUserKnownHosts yes
-"IgnoreUserKnownHosts”设置ssh daemon是否在进行RhostsRSAAuthentication安全验证的时候忽略用户的"$HOME/.ssh/known_hosts”
+  "IgnoreUserKnownHosts”设置ssh daemon是否在进行RhostsRSAAuthentication安全验证的时候忽略用户的"$HOME/.ssh/known_hosts”
 StrictModes yes
-"StrictModes”设置ssh在接收登录请求之前是否检查用户家目录和rhosts文件的权限和所有权。这通常是必要的，因为新手经常会把自己的目录和文件设成任何人都有写权限。
+  "StrictModes”设置ssh在接收登录请求之前是否检查用户家目录和rhosts文件的权限和所有权。这通常是必要的，因为新手经常会把自己的目录和文件设成任何人都有写权限。
 X11Forwarding no
-"X11Forwarding”设置是否允许X11转发。
+  "X11Forwarding”设置是否允许X11转发。
 PrintMotd yes
-"PrintMotd”设置sshd是否在用户登录的时候显示“/etc/motd”中的信息。
+  "PrintMotd”设置sshd是否在用户登录的时候显示“/etc/motd”中的信息。
 SyslogFacility AUTH
-"SyslogFacility”设置在记录来自sshd的消息的时候，是否给出“facility code”。
+  "SyslogFacility”设置在记录来自sshd的消息的时候，是否给出“facility code”。
 LogLevel INFO
-"LogLevel”设置记录sshd日志消息的层次。INFO是一个好的选择。查看sshd的man帮助页，已获取更多的信息。
+  "LogLevel”设置记录sshd日志消息的层次。INFO是一个好的选择。查看sshd的man帮助页，已获取更多的信息。
 RhostsAuthentication no
-"RhostsAuthentication”设置只用rhosts或“/etc/hosts.equiv”进行安全验证是否已经足够了。
+  "RhostsAuthentication”设置只用rhosts或“/etc/hosts.equiv”进行安全验证是否已经足够了。
 RhostsRSAAuthentication no
-"RhostsRSA”设置是否允许用rhosts或“/etc/hosts.equiv”加上RSA进行安全验证。
+  "RhostsRSA”设置是否允许用rhosts或“/etc/hosts.equiv”加上RSA进行安全验证。
 RSAAuthentication yes
-"RSAAuthentication”设置是否允许只有RSA安全验证。
+  "RSAAuthentication”设置是否允许只有RSA安全验证。
 PasswordAuthentication yes
-"PasswordAuthentication”设置是否允许口令验证。
+  "PasswordAuthentication”设置是否允许口令验证。
 PermitEmptyPasswords no
-"PermitEmptyPasswords”设置是否允许用口令为空的帐号登录。
+  "PermitEmptyPasswords”设置是否允许用口令为空的帐号登录。
 AllowUsers admin
-"AllowUsers”的后面可以跟任意的数量的用户名的匹配串，这些字符串用空格隔开。主机名可以是域名或IP地址。
-````
+  "AllowUsers”的后面可以跟任意的数量的用户名的匹配串，这些字符串用空格隔开。主机名可以是域名或IP地址。
+```
 
 
 
@@ -267,5 +267,5 @@ AllowUsers admin
 
 
 <!-- ---------------------- -->
-[img1]:https://raw.githubusercontent.com/xubinfeng/xubinfeng.github.io/master/linux/images/1.png
-[img2]:https://raw.githubusercontent.com/xubinfeng/xubinfeng.github.io/master/linux/images/2.png
+[img1]:./images/1.png
+[img2]:./images/2.png
