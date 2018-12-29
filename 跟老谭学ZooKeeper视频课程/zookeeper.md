@@ -56,14 +56,14 @@ get /note1
 1. setquota命令格式 ```setquota -n <number>  <path>```
 ```bash
 setquota -n 3 /node1
-> Comment: the parts are option -n val 3 path /node1
+>> Comment: the parts are option -n val 3 path /node1
 ```
 
 2. listquota命令格式 ```listquota <path>```
 ```bash
 listquota /node1
-> Output quota for /node1 count=3,bytes=-1
-> Output stat for /node1 count=2,bytes=18
+>> Output quota for /node1 count=3,bytes=-1
+>> Output stat for /node1 count=2,bytes=18
 ```
 
 3. delquota命令格式 ```delquota [-n|-b] <path>```  
@@ -71,8 +71,8 @@ listquota /node1
 
 ```bash
 delquota /node1
->  absolute path is /zookeeper/quota/node1/zookeeper_limits
->  quota for /node1 does not exist.
+>>  absolute path is /zookeeper/quota/node1/zookeeper_limits
+>>  quota for /node1 does not exist.
 ```
 
 ### 10. history查询历史命令,redo重新执行历史命令
