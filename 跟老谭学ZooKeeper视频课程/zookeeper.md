@@ -1,5 +1,5 @@
 # 跟老谭学ZooKeeper视频课程
-## 一. zookeeper 5钟使用场景
+## 一. zookeeper使用场景
 
 ##  二. zookeeper安装和启动 
 - conf下面复制**zoo_sample.cfg**更改为**zoo.cfg** 默认会寻找zoo.cfg配置
@@ -85,3 +85,5 @@ delquota /node1
 - close关闭连接后不会退出
 - close退出后可以直接connect重新进行连接操作
 - quit直接退出
+
+### 12. 
